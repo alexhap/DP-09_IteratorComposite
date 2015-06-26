@@ -1,9 +1,11 @@
+import java.util.Iterator;
+
 /**
  * Created by alex on 25.06.2015.
  *
  */
 
-public class MenuItem {
+public class MenuItem extends MenuComponent {
     private String name;
     private String description;
     private boolean vegetarian;
@@ -30,5 +32,13 @@ public class MenuItem {
 
     public String getDescription() {
         return description;
+    }
+
+    public void print() {
+        System.out.printf("%s%s, %.2f\n\t --- %s\n", getName(), isVegetarian() ? " (v)" : "", getPrice(), getDescription());
+    }
+
+    public Iterator createIterator() {
+        return new NullIterator();
     }
 }
